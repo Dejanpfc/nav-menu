@@ -1,0 +1,285 @@
+@font-face {
+  font-family: Roboto;
+  src: url(Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: RobotoMedium;
+  src: url(Roboto/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url(Roboto/Roboto-Bold.ttf);
+}
+:root {
+  --menu-count: 5;
+}
+body {
+  background-color: #333;
+}
+.mobile-menu-btn {
+  display: none;
+}
+.header-main {
+  width: 100%;
+  padding: 0 60px;
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+.header-main nav {
+  display: flex;
+}
+.header-main .logo {
+  height: 60px;
+  align-items: center;
+}
+.header-main .logo img {
+  height: 60px;
+}
+.header-main ul {
+  height: 100%;
+  padding-left: 40px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header-main ul li a {
+  display: block;
+  padding: 0 10px;
+  height: 100%;
+  line-height: 60px;
+  font-size: 1rem;
+  font-family: RobotoMedium;
+  color: #000;
+  background-color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all ease-in-out 100ms;
+}
+.header-main ul li a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/*DROPDOWN MENU START*/
+
+.header-main ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  left: -40px;
+  border-top: 2px solid #333;
+}
+
+/*.header-main ul li ul li a{
+    white-space:nowrap;
+}*/
+
+ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+/*DROPDOWN STYLING STOP*/
+.header-main .sm {
+  align-self: center;
+  display: flex;
+}
+
+.header-main form {
+  height: 40px;
+  padding-right: 10px;
+  display: flex;
+  border: 1px solid #aeaeae;
+  border-radius: 20px 100px 100px 20px;
+  width: fit-content;
+  align-self: center;
+}
+.header-main form input {
+  height: 100%;
+  width: 300px;
+  padding: 0 10px 0 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Roboto;
+}
+.header-main form input:focus {
+  border: 1px solid #111;
+}
+.header-main form button {
+  width: fit-content;
+  padding: 0 5px 0 10px;
+}
+.header-main form button img {
+  height: 24px;
+  padding-top: 15%;
+  cursor: pointer;
+}
+.header-main .sm-links {
+  height: 60px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.header-main .sm-links img {
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+  align-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .header-main {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    background-color: #fff;
+  }
+  .mobile-menu-btn img {
+    height: 80%;
+    align-self: center;
+  }
+
+  .header-main {
+    height: 100vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .header-main nav {
+    width: 100%;
+    height: 80vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .header-main .logo {
+    width: 100%;
+    height: 30%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 30%;
+    align-items: center;
+  }
+  .header-main .logo img {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+  }
+  .header-main ul {
+    height: 70%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+  .header-main ul li {
+    width: 100%;
+    height: calc(100% / var(--menu-count));
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    transition: 1s;
+  }
+  .header-main ul li:last-child {
+    border-bottom: 1px solid #ddd;
+  }
+  .header-main ul li a {
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .header-main ul li a:hover {
+    background-color: transparent;
+    color: #fff;
+  }
+  .header-main nav ul {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .header-main ul li ul {
+    display: none;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    position: absolute;
+    bottom: -80px;
+    z-index: 2000;
+    left: 0;
+  }
+  .header-main ul li {
+    height: fit-content;
+    display: block;
+    background-color: #111;
+  }
+
+  .header-main ul li ul li a:hover {
+    background-color: #111;
+    color: #fff;
+  }
+  .header-main ul li:focus > ul,
+  .header-main ul li:hover > ul {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+  }
+  .header-main .sm {
+    width: 100%;
+    height: 10vh;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .header-main form {
+    padding-right: 0;
+    width: 90%;
+    height: 40%;
+  }
+  .header-main input {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px 0 20px;
+    font-size: 1.6rem;
+  }
+  .header-main button {
+    padding: 0 5%;
+  }
+  .header-main button img {
+    height: 5vh;
+    padding-top: 15%;
+  }
+  .header-main .sm-links {
+    margin: 0 auto;
+  }
+  .header-main .sm-links img {
+    width: 70px;
+    height: 70px;
+  }
+  .list {
+    font-size: 1.8rem;
+  }
+}
